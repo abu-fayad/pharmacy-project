@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex">
+    
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Sidebar and Main Content Wrapper -->
+    <div class="flex w-full">
+        <!-- Sidebar will be loaded here -->
+        <div id="sidebar-container" class="w-1/5"></div>
+
+
+    <!-- Main Content -->
+    <main class="w-4/5 p-6 space-y-8">
+        <!-- Top Card Section -->
+        <div class="bg-white p-6 rounded-xl shadow-lg space-y-4">
+            <h2 class="text-2xl font-bold text-gray-800">Welcome to Pharmacy Dashboard</h2>
+            <p class="text-lg text-gray-600">Manage sales, inventory, and reports with ease.</p>
+            <div class="mt-4 flex space-x-4">
+                <a href="report.html">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition duration-300">
+                    View Sales Reports
+                </button>
+            </a>
+            <a href="inventory.html">
+                <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition duration-300">
+                    View Medicine Inventory
+                </button>
+            </a>
+
+            </div>
+        </div>
+
+
+      <!-- Cards for different sections -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <!-- Sales Reports Card -->
+    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+        <h3 class="text-xl font-semibold text-gray-700">Sales Reports</h3>
+        <p class="mt-2 text-lg text-gray-500">Analyze daily, weekly, and monthly sales data.</p>
+        <a href="report.html">
+            <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition duration-300">
+                View Reports
+            </button>
+        </a>
+    </div>
+    <!-- Medicine Inventory Card -->
+    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+        <h3 class="text-xl font-semibold text-gray-700">Medicine Inventory</h3>
+        <p class="mt-2 text-lg text-gray-500">Track stock levels and expiration dates.</p>
+        <a href="inventory.html">
+            <button class="mt-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition duration-300">
+                View Inventory
+            </button>
+        </a>
+    </div>
+    <!-- Staff Card -->
+    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+        <h3 class="text-xl font-semibold text-gray-700">Staff Management</h3>
+        <p class="mt-2 text-lg text-gray-500">Manage staff information and permissions.</p>
+        <a href="staff.html">
+            <button class="mt-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition duration-300">
+                View Staff
+            </button>
+        </a>
+    </div>
+</div>
+    </main>
+    <script src="js/loadComponents.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

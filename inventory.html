@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Inventory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex">
+
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Sidebar and Main Content Wrapper -->
+    <div class="flex w-full">
+        <!-- Sidebar will be loaded here -->
+        <div id="sidebar-container" class="w-1/5"></div>
+
+        <!-- Main Content -->
+        <main class="ml-1/5 p-6 mt-16 flex-1">
+            <h1 class="text-3xl font-bold text-gray-800">Medicine Inventory</h1>
+            <p class="text-lg text-gray-600 mb-4">Manage stock levels and track expiration dates.</p>
+
+            <!-- Button to Add Inventory Item -->
+            <button class="bg-green-600 text-white px-6 py-2 rounded-lg mb-4 hover:bg-green-700 transition duration-300" id="addItemBtn">Add New Item</button>
+
+            <!-- Inventory Table -->
+            <table class="table-auto w-full mt-6 bg-white rounded-lg shadow-md" id="inventoryTable">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="px-4 py-2 border text-left">Medicine</th>
+                        <th class="px-4 py-2 border text-left">Quantity</th>
+                        <th class="px-4 py-2 border text-left">Expiration Date</th>
+                        <th class="px-4 py-2 border text-left">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="px-4 py-2 border">Aspirin</td>
+                        <td class="px-4 py-2 border">50</td>
+                        <td class="px-4 py-2 border">2025-12-01</td>
+                        <td class="px-4 py-2 border">
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300" id="editBtn">Edit</button>
+                            <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300" id="deleteBtn">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More rows go here -->
+                </tbody>
+            </table>
+
+            <!-- Chart.js for stock levels visualization -->
+            <div class="mt-10">
+                <canvas id="inventoryChart"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <!-- External JavaScript File -->
+    <script src="js/loadComponents.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/inventory.js" defer></script>
+</body>
+</html>

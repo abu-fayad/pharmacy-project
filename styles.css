@@ -1,0 +1,54 @@
+/* جعل الـ body مرنًا لتوزيع المساحة تلقائيًا */
+body {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; /* المسافة بين الـ Navbar والمحتوى */
+    overflow-x: hidden; 
+}
+
+/* Navbar ثابت في الأعلى */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    padding: 10px 20px;
+    width: 100%; /* تأكد من أن navbar يأخذ العرض الكامل */
+    box-sizing: border-box;
+    color: white; /* النص باللون الأبيض */
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+
+}
+
+/* ضبط الـ Sidebar */
+/* ضبط الـ Sidebar */
+aside {
+    position: fixed;
+    top: 80px !important; /* زيادة المسافة بين الـ Navbar و Sidebar */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 120px); /* لتغطية كامل الشاشة بعد navbar مع المسافة الجديدة */
+    z-index: 10;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    overflow-y: auto;
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+
+}
+
+/* تحسين التنسيق في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+}

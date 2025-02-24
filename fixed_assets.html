@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Assets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex">
+    
+     <!-- Navbar will be loaded here -->
+     <div id="navbar-container"></div>
+
+     <!-- Sidebar and Main Content Wrapper -->
+     <div class="flex w-full">
+         <!-- Sidebar will be loaded here -->
+         <div id="sidebar-container" class="w-1/5"></div>
+ 
+
+    <main class="flex-1 p-6 mt-16">
+        <h1 class="text-3xl font-bold text-gray-800">Fixed Assets</h1>
+        <p class="text-lg text-gray-600">Track all fixed assets in the pharmacy.</p>
+    </main>
+    <script src="js/loadComponents.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/fixed_assets.js" defer></script>
+</body>
+</html>

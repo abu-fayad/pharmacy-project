@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex">
+    
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Sidebar and Main Content Wrapper -->
+    <div class="flex w-full">
+        <!-- Sidebar will be loaded here -->
+        <div id="sidebar-container" class="w-1/5"></div>
+
+    <main class="w-4/5 p-6">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Manager Profile</h2>
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+            <label class="block text-gray-700 font-semibold">Manager ID:</label>
+            <input type="text" id="managerId" class="border p-2 w-full rounded-lg mb-4 bg-gray-200" readonly>
+
+            <label class="block text-gray-700 font-semibold">Full Name:</label>
+            <input type="text" id="managerName" class="border p-2 w-full rounded-lg mb-4 bg-gray-200" readonly>
+
+            <label class="block text-gray-700 font-semibold">Email:</label>
+            <input type="email" id="managerEmail" class="border p-2 w-full rounded-lg mb-4" placeholder="Enter Email">
+
+            <label class="block text-gray-700 font-semibold">Phone Number:</label>
+            <input type="text" id="managerPhone" class="border p-2 w-full rounded-lg mb-4" placeholder="Enter Phone Number" oninput="validatePhoneNumber(this)">
+
+            <label class="block text-gray-700 font-semibold">Age:</label>
+            <input type="number" id="managerAge" class="border p-2 w-full rounded-lg mb-4 bg-gray-200" readonly>
+
+            <label class="block text-gray-700 font-semibold">Password:</label>
+            <input type="password" id="managerPassword" class="border p-2 w-full rounded-lg mb-4" placeholder="Enter Password">
+
+            <label class="block text-gray-700 font-semibold">Pharmacy Branch:</label>
+            <input type="text" id="managerBranch" class="border p-2 w-full rounded-lg mb-4 bg-gray-200" readonly>
+
+            <button onclick="saveManagerSettings()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg w-full font-bold">Save Profile</button>
+        </div>
+    </main>
+    <script src="js/loadComponents.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
