@@ -20,7 +20,7 @@ nav {
     width: 100%; /* تأكد من أن navbar يأخذ العرض الكامل */
     box-sizing: border-box;
     color: white; /* النص باللون الأبيض */
-    background: linear-gradient(to right, #3b82f6, #9333ea);
+    background: linear-gradient(to right, #d2b48c, #a68b65);
 
 }
 
@@ -37,7 +37,7 @@ aside {
     box-sizing: border-box;
     color: white;
     overflow-y: auto;
-    background: linear-gradient(to right, #3b82f6, #9333ea);
+    background: linear-gradient(to right, #d2b48c, #a68b65);
 
 }
 
