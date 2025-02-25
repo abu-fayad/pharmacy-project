@@ -10,10 +10,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex">
+<body class="bg-gradient-to-r from-[#a3d5ff] to-[#6baed6] min-h-screen flex">
 
-    <div class="absolute inset-0 bg-[url('assets/system6.jpg')] bg-cover bg-center z-[-1]"></div>
-
+    <div class="absolute inset-0 bg-[url('assets/system10.jpg')] bg-cover bg-center z-[-1]"></div>
 
     <!-- Navbar will be loaded here -->
     <div id="navbar-container"></div>
@@ -25,15 +24,15 @@
 
         <!-- Main Content -->
         <main class="ml-1/5 p-6 mt-16 flex-1">
-            <h1 class="text-3xl font-bold text-gray-800">Medicine Inventory</h1>
-            <p class="text-lg text-gray-600 mb-4">Manage stock levels and track expiration dates.</p>
+            <h1 class="text-3xl font-bold text-[#2c3e50]">Medicine Inventory</h1>
+            <p class="text-lg text-[#34495e] mb-4">Manage stock levels and track expiration dates.</p>
 
             <!-- Button to Add Inventory Item -->
-            <button class="bg-green-600 text-white px-6 py-2 rounded-lg mb-4 hover:bg-green-700 transition duration-300" id="addItemBtn">Add New Item</button>
+            <button class="bg-[#27ae60] text-white px-6 py-2 rounded-lg mb-4 hover:bg-[#219150] transition duration-300" id="addItemBtn">Add New Item</button>
 
             <!-- Inventory Table -->
             <table class="table-auto w-full mt-6 bg-white rounded-lg shadow-md" id="inventoryTable">
-                <thead class="bg-gray-800 text-white">
+                <thead class="bg-[#2c3e50] text-white">
                     <tr>
                         <th class="px-4 py-2 border text-left">Medicine</th>
                         <th class="px-4 py-2 border text-left">Quantity</th>
@@ -47,8 +46,8 @@
                         <td class="px-4 py-2 border">50</td>
                         <td class="px-4 py-2 border">2025-12-01</td>
                         <td class="px-4 py-2 border">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300" id="editBtn">Edit</button>
-                            <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300" id="deleteBtn">Delete</button>
+                            <button class="bg-[#0077b6] text-white px-4 py-2 rounded hover:bg-[#005f87] transition duration-300" id="editBtn">Edit</button>
+                            <button class="bg-[#c0392b] text-white px-4 py-2 rounded hover:bg-[#a93226] transition duration-300" id="deleteBtn">Delete</button>
                         </td>
                     </tr>
                     <!-- More rows go here -->

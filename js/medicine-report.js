@@ -8,9 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
             datasets: [{
                 label: "Medicine Levels",
                 data: [200, 50, 10],
-                borderColor: "red",
+                borderColor: "#3b82f6",
+                backgroundColor: "rgba(59, 130, 246, 0.2)", 
                 borderWidth: 2,
-                fill: false
+                fill: true
             }]
         },
         options: {
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         chartData.labels.forEach((label, index) => {
             const row = document.createElement("tr");
-            row.innerHTML = `<td class="border px-4 py-2">${label}</td><td class="border px-4 py-2">${chartData.datasets[0].data[index]}</td>`;
+            row.innerHTML = `<td class="border px-4 py-2 bg-blue-100">${label}</td><td class="border px-4 py-2 bg-blue-100">${chartData.datasets[0].data[index]}</td>`;
             tableBody.appendChild(row);
         });
     }

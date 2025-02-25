@@ -13,8 +13,7 @@
 </head>
 <body class="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex flex-col">
 
-
-    <div class="absolute inset-0 bg-[url('assets/system6.jpg')] bg-cover bg-center z-[-1]"></div>
+    <div class="absolute inset-0 bg-[url('assets/system10.jpg')] bg-cover bg-center z-[-1]"></div>
 
     <!-- Navbar -->
     <div id="navbar-container"></div>
@@ -28,42 +27,42 @@
         <main class="w-4/5 p-6">
             <!-- Sales Reports -->
             <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                <h2 class="text-xl font-bold mb-4">Sales Reports</h2>
+                <h2 class="text-xl font-bold mb-4 text-blue-700">Sales Reports</h2>
 
                 <div class="flex justify-center space-x-2">
-                    <button class="bg-gray-500 text-white px-4 py-2 rounded" onclick="updateSalesData('day')">Day</button>
-                    <button class="bg-gray-500 text-white px-4 py-2 rounded" onclick="updateSalesData('week')">Week</button>
-                    <button class="bg-gray-500 text-white px-4 py-2 rounded" onclick="updateSalesData('month')">Month</button>
-                    <button class="bg-gray-500 text-white px-4 py-2 rounded" onclick="updateSalesData('year')">Year</button>
+                    <button class="bg-blue-400 text-white px-4 py-2 rounded" onclick="updateSalesData('day')">Day</button>
+                    <button class="bg-blue-400 text-white px-4 py-2 rounded" onclick="updateSalesData('week')">Week</button>
+                    <button class="bg-blue-400 text-white px-4 py-2 rounded" onclick="updateSalesData('month')">Month</button>
+                    <button class="bg-blue-400 text-white px-4 py-2 rounded" onclick="updateSalesData('year')">Year</button>
                 </div>
 
                 <div class="mt-4">
-                    <canvas id="salesChart" class="w-full h-64"></canvas>
+                    <canvas id="salesChart" class="w-full h-64 bg-blue-50"></canvas>
                 </div>
 
-                <button class="bg-gray-700 text-white px-4 py-2 rounded mt-4" onclick="printChartPDF('salesChart', 'Sales Report')">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded mt-4" onclick="printChartPDF('salesChart', 'Sales Report')">
                     <i class="fas fa-print"></i> Print Report
                 </button>
 
                 <!-- Excel and Table Buttons -->
                 <div class="flex justify-center space-x-2 mt-4">
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="downloadSalesExcel()">Download Excel</button>
-                    <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="showSalesTable()">Show Table</button>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="downloadSalesExcel()">Download Excel</button>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="showSalesTable()">Show Table</button>
                 </div>
 
                 <!-- Sales Table -->
                 <div id="salesTable" class="hidden mt-6">
-                    <table class="min-w-full table-auto border-collapse">
+                    <table class="min-w-full table-auto border-collapse border border-blue-300">
                         <thead>
-                            <tr>
+                            <tr class="bg-blue-200">
                                 <th class="border px-4 py-2">Label</th>
                                 <th class="border px-4 py-2">Value</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="border px-4 py-2">Sales</td>
-                                <td class="border px-4 py-2" id="salesDataTable"></td>
+                                <td class="border px-4 py-2 bg-blue-100">Sales</td>
+                                <td class="border px-4 py-2 bg-blue-200" id="salesDataTable"></td>
                             </tr>
                         </tbody>
                     </table>

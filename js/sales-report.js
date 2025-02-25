@@ -8,14 +8,27 @@ document.addEventListener("DOMContentLoaded", function () {
             datasets: [{
                 label: "Sales",
                 data: [120, 500, 1500, 7000],
-                borderColor: "blue",
+                borderColor: "#4A90E2",
+                backgroundColor: "rgba(74, 144, 226, 0.2)",
                 borderWidth: 2,
-                fill: false
+                fill: true
             }]
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    grid: {
+                        color: "#B0C4DE"
+                    }
+                },
+                y: {
+                    grid: {
+                        color: "#B0C4DE"
+                    }
+                }
+            }
         }
     });
 
@@ -29,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         salesChart.data.datasets[0].data = newData[period];
         salesChart.update();
-        updateSalesTable(salesChart.data); // تحديث الجدول تلقائيًا
+        updateSalesTable(salesChart.data);
     };
 
     window.showSalesTable = function () {
@@ -43,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         chartData.labels.forEach((label, index) => {
             const row = document.createElement("tr");
-            row.innerHTML = `<td class="border px-4 py-2">${label}</td><td class="border px-4 py-2">${chartData.datasets[0].data[index]}</td>`;
+            row.innerHTML = `<td class="border px-4 py-2 bg-blue-100">${label}</td><td class="border px-4 py-2 bg-blue-200">${chartData.datasets[0].data[index]}</td>`;
             tableBody.appendChild(row);
         });
     }

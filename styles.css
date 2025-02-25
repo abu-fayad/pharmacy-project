@@ -20,11 +20,10 @@ nav {
     width: 100%; /* تأكد من أن navbar يأخذ العرض الكامل */
     box-sizing: border-box;
     color: white; /* النص باللون الأبيض */
-    background: linear-gradient(to right, #d2b48c, #a68b65);
+    background: linear-gradient(to right, #a0d8ef, #87cdee);
 
 }
 
-/* ضبط الـ Sidebar */
 /* ضبط الـ Sidebar */
 aside {
     position: fixed;
@@ -37,7 +36,7 @@ aside {
     box-sizing: border-box;
     color: white;
     overflow-y: auto;
-    background: linear-gradient(to right, #d2b48c, #a68b65);
+    background: linear-gradient(to right, #a0d8ef, #87cdee);
 
 }
 
