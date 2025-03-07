@@ -1,61 +1,44 @@
-<aside class="bg-[#87cdee] text-white p-6 rounded-xl shadow-lg flex flex-col space-y-6 w-1/5 min-h-screen fixed left-0" style="top: 120px;">
-    <!-- العنوان -->
-    <div class="flex justify-center items-center mb-6">
-        <h2 class="text-2xl font-bold tracking-wide">Pharmacy</h2>
+<aside class="bg-primary text-white p-4 shadow-lg d-flex flex-column gap-3 position-fixed rounded-start-4" style="width: 250px; top: 80px; left: 0; height: calc(100vh - 80px); overflow-y: auto; background: linear-gradient(to right, #a0d8ef, #87cdee); border-right: 4px solid rgba(0, 0, 0, 0.2);">
+    <div class="text-center mb-4">
+        <h2 class="h4 fw-bold">Pharmacy</h2>
     </div>
-
-    <!-- قائمة الروابط -->
-    <ul class="space-y-4">
-        <li class="p-3 flex items-center bg-white text-[#2c3e50] hover:bg-[#5ca8d1] hover:text-white rounded-lg cursor-pointer transition duration-300">
-            <a href="index.html" class="flex items-center w-full text-lg font-semibold">
-                <span class="mr-3 text-xl"><i class="fas fa-home"></i></span>
-                Home
+    <ul class="nav flex-column">
+        <li class="nav-item mb-3">
+            <a href="index.html" class="nav-link text-white d-flex align-items-center rounded">
+                <i class="fas fa-home me-3"></i> Home
             </a>
         </li>
-        <li class="p-3 flex items-center bg-white text-[#2c3e50] hover:bg-[#5ca8d1] hover:text-white rounded-lg cursor-pointer transition duration-300">
-            <a href="settings.html" class="flex items-center w-full text-lg font-semibold">
-                <span class="mr-3 text-xl"><i class="fas fa-cogs"></i></span>
-                Settings
+        <li class="nav-item mb-3">
+            <a href="settings.html" class="nav-link text-white d-flex align-items-center rounded">
+                <i class="fas fa-cogs me-3"></i> Settings
             </a>
         </li>
-        <li class="p-3 flex items-center bg-white text-[#2c3e50] hover:bg-[#5ca8d1] hover:text-white rounded-lg cursor-pointer transition duration-300">
-            <a href="fixed_assets.html" class="flex items-center w-full text-lg font-semibold">
-                <span class="mr-3 text-xl"><i class="fas fa-box"></i></span>
-                Fixed Assets
+        <li class="nav-item mb-3">
+            <a href="fixed_assets.html" class="nav-link text-white d-flex align-items-center rounded">
+                <i class="fas fa-box me-3"></i> Fixed Assets
             </a>
         </li>
-        <li class="p-3 flex items-center bg-white text-[#2c3e50] hover:bg-[#5ca8d1] hover:text-white rounded-lg cursor-pointer transition duration-300">
-            <a href="inventory.html" class="flex items-center w-full text-lg font-semibold">
-                <span class="mr-3 text-xl"><i class="fas fa-boxes"></i></span> 
-                Inventory
+        <li class="nav-item mb-3 position-relative">
+            <a href="#" class="nav-link text-white d-flex align-items-center rounded" id="report-link">
+                <i class="fas fa-chart-bar me-3"></i> Reports
+                <span class="ms-auto" id="report-arrow" style="transition: transform 0.3s ease; display: inline-block;">&#9660;</span>
             </a>
-        </li>
-        <li class="p-3 flex items-center bg-white text-[#2c3e50] hover:bg-[#5ca8d1] hover:text-white rounded-lg cursor-pointer transition duration-300 relative">
-            <a href="#" class="flex items-center w-full text-lg font-semibold" id="report-link">
-                <span class="mr-3 text-xl"><i class="fas fa-chart-bar"></i></span>
-                Reports
-                <span class="ml-auto text-xl transform transition-transform duration-300" id="report-arrow">&#9660;</span>
-            </a>
-            <!-- القائمة الفرعية -->
-            <ul id="report-submenu" class="submenu hidden bg-[#5ca8d1] text-white rounded-lg mt-2 space-y-2 p-2 absolute left-0 right-0 top-full z-10">
-                <li class="p-2 hover:bg-[#3b90c4] rounded-lg">
-                    <a href="sales-report.html" class="flex items-center text-lg">
-                        <span class="mr-2"><i class="fas fa-dollar-sign"></i></span>
-                        Sales
+            <ul id="report-submenu" class="list-unstyled text-white rounded mt-2 p-2 d-none w-100" style="background: linear-gradient(to right, #a0d8ef, #87cdee); border: none;">
+                <li>
+                    <a href="sales-report.html" class="nav-link text-white d-flex align-items-center rounded">
+                        <i class="fas fa-dollar-sign me-2"></i> Sales
                     </a>
                 </li>
-                <li class="p-2 hover:bg-[#3b90c4] rounded-lg">
-                    <a href="medicine-report.html" class="flex items-center text-lg">
-                        <span class="mr-2"><i class="fas fa-pills"></i></span>
-                        Medicine
+                <li>
+                    <a href="medicine-report.html" class="nav-link text-white d-flex align-items-center rounded">
+                        <i class="fas fa-pills me-2"></i> Medicine
                     </a>
                 </li>
             </ul>
         </li>
-        <li class="p-3 flex items-center bg-white text-[#2c3e50] hover:bg-[#5ca8d1] hover:text-white rounded-lg cursor-pointer transition duration-300">
-            <a href="staff.html" class="flex items-center w-full text-lg font-semibold">
-                <span class="mr-3 text-xl"><i class="fas fa-user"></i></span>
-                Staff
+        <li class="nav-item mb-3">
+            <a href="staff.html" class="nav-link text-white d-flex align-items-center rounded">
+                <i class="fas fa-user me-3"></i> Staff
             </a>
         </li>
     </ul>

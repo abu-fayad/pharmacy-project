@@ -7,6 +7,7 @@ body {
     padding: 0;
     padding-top: 80px; /* المسافة بين الـ Navbar والمحتوى */
     overflow-x: hidden; 
+    gap: 20px; /* إضافة مسافة فاصلة بين Navbar و Sidebar */
 }
 
 /* Navbar ثابت في الأعلى */
@@ -17,30 +18,68 @@ nav {
     right: 0;
     z-index: 20;
     padding: 10px 20px;
-    width: 100%; /* تأكد من أن navbar يأخذ العرض الكامل */
+    width: 100%;
     box-sizing: border-box;
-    color: white; /* النص باللون الأبيض */
+    color: white;
     background: linear-gradient(to right, #a0d8ef, #87cdee);
-
+    border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 20px 20px;
 }
 
-/* ضبط الـ Sidebar */
+/* Sidebar */
 aside {
     position: fixed;
-    top: 80px !important; /* زيادة المسافة بين الـ Navbar و Sidebar */
+    top: 100px !important; 
     left: 0;
     width: 250px;
-    height: calc(100vh - 120px); /* لتغطية كامل الشاشة بعد navbar مع المسافة الجديدة */
+    height: calc(100vh - 100px);
     z-index: 10;
     padding: 20px;
     box-sizing: border-box;
     color: white;
     overflow-y: auto;
     background: linear-gradient(to right, #a0d8ef, #87cdee);
-
+    border-radius: 0 20px 20px 0;
+    transition: all 0.3s ease-in-out;
 }
 
-/* تحسين التنسيق في الشاشات الصغيرة */
+.nav-item a {
+    background: white;
+    color: #2c3e50 !important; 
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nav-item a:hover {
+    background: #5ca8d1;
+    color: white !important;
+    transform: scale(1.05);
+}
+
+#report-arrow {
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+#report-submenu {
+    background: linear-gradient(to right, #a0d8ef, #87cdee) !important;
+    border: none !important;
+    padding: 0;
+}
+
+#report-submenu li {
+    margin-bottom: 10px; /* إضافة مسافة بسيطة بين Sales و Medicine */
+}
+
 @media (max-width: 768px) {
     body {
         flex-direction: column;

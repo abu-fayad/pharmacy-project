@@ -1,20 +1,18 @@
-<!-- navbar.html -->
-<nav class="bg-gradient-to-r from-[#a0d8ef] to-[#87cdee] text-white p-4 flex justify-between items-center shadow-lg fixed top-0 left-0 right-0 z-20 h-16 px-6 rounded-xl">
-    <div class="flex items-center space-x-6">
-        <button id="logoutButton" class="relative flex items-center px-5 py-2 bg-red-600 text-white text-lg font-semibold rounded-full shadow-md transition duration-300 transform hover:scale-105 hover:bg-red-700">
-            <i class="fas fa-sign-out-alt mr-2"></i>
-            Logout
-            <span class="absolute inset-0 rounded-full bg-red-700 opacity-0 transition-opacity duration-300 hover:opacity-10"></span>
-        </button>
-
-        <button class="relative bg-white text-[#2c3e50] p-2 rounded-full hover:bg-[#3b90c4] transition duration-300 shadow-md flex items-center justify-center w-10 h-10">
-            <i class="fas fa-bell text-lg"></i>
-            <span class="absolute -top-1 -right-1 bg-red-600 text-xs px-2 py-0.5 rounded-full animate-pulse">3</span>
-        </button>
-    </div>
-
-    <!-- اللوجو-->
-    <div class="flex items-center space-x-4">
-        <img src="assets/logo.png" alt="Pharmacy Logo" class="h-14 w-14 rounded-full shadow-lg bg-white p-2 border border-gray-200">
+<nav class="navbar navbar-expand-lg bg-primary text-white shadow-lg fixed-top rounded-bottom-4" style="background: linear-gradient(to right, #a0d8ef, #87cdee); border-bottom: 4px solid rgba(0, 0, 0, 0.2);">
+    <div class="container-fluid d-flex justify-content-between align-items-center px-4 py-2">
+        <div class="d-flex align-items-center gap-3">
+            <button id="logoutButton" class="btn btn-danger rounded-pill shadow-sm">
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+            </button>
+            <button class="btn btn-light position-relative rounded-circle p-2 shadow-sm">
+                <i class="fas fa-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger animate__animated animate__pulse">
+                    3
+                </span>
+            </button>
+        </div>
+        <div>
+            <img src="assets/logo.png" alt="Pharmacy Logo" class="rounded-circle shadow-sm border p-2 bg-white" style="height: 56px; width: 56px;">
+        </div>
     </div>
 </nav>

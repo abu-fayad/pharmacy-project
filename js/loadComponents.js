@@ -1,6 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
     loadComponent("navbar.html", "navbar-container");
     loadComponent("sidebar.html", "sidebar-container", initSidebar);
+
+    const reportLink = document.getElementById("report-link");
+    const submenu = document.getElementById("report-submenu");
+    const arrow = document.getElementById("report-arrow");
+
+    reportLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        submenu.classList.toggle("d-none");
+        if (submenu.classList.contains("d-none")) {
+            arrow.style.transform = "rotate(0deg)";
+        } else {
+            arrow.style.transform = "rotate(180deg)";
+        }
+    });
 });
 
 function loadComponent(url, containerId, callback = null) {
@@ -26,7 +40,7 @@ function initSidebar() {
 
         reportLink.addEventListener("click", function (event) {
             event.preventDefault();
-            submenu.classList.toggle("hidden");
+            submenu.classList.toggle("d-none");
             arrow.classList.toggle("rotate-180");
         });
 

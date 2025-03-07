@@ -1,136 +1,172 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let salesCtx = document.getElementById('salesChart').getContext('2d');
-    let medicineCtx = document.getElementById('medicineChart').getContext('2d');
+    // التعامل مع Navbar أو أي وظائف مشتركة أخرى
+    setupNavbar();
 
-    let salesChart = createChart(salesCtx, salesData.day);
-    let medicineChart = createChart(medicineCtx, medicineData.stock);
-
-    window.updateSalesData = function (type) {
-        refreshChart(salesChart, salesData[type]);
-        showSalesTable(type);  // تحديث الجدول بناءً على النوع
-    };
-
-    window.updateMedicineData = function (type) {
-        refreshChart(medicineChart, medicineData[type]);
-        showMedicineTable(type);  // تحديث الجدول بناءً على النوع
-    };
+    // إضافة وظائف مشتركة مثل تحميل البيانات أو إعداد الرسومات البيانية
+    initializeCharts();
 });
 
-// Function to create chart
-function createChart(ctx, data) {
-    return new Chart(ctx, {
-        type: 'bar',
+function setupNavbar() {
+    // إضافة وظائف Navbar مثل التبديل بين اللغات أو الخروج
+    console.log("Navbar setup complete.");
+}
+
+function initializeCharts() {
+    // تهيئة الرسومات البيانية
+    if (document.getElementById("salesChart")) {
+        setupSalesChart();
+    }
+
+    if (document.getElementById("medicineChart")) {
+        setupMedicineChart();
+    }
+}
+
+function setupSalesChart() {
+    const ctx = document.getElementById("salesChart").getContext("2d");
+    let salesChart = new Chart(ctx, {
+        type: "line",
         data: {
-            labels: data.labels,
+            labels: ["Day", "Week", "Month", "Year"],
             datasets: [{
-                label: data.label,
-                data: data.data,
-                backgroundColor: data.borderColor,
-                borderColor: data.borderColor,
-                borderWidth: 2
+                label: "Sales",
+                data: [120, 500, 1500, 7000],
+                borderColor: "#4A90E2",
+                backgroundColor: "rgba(74, 144, 226, 0.2)",
+                borderWidth: 2,
+                fill: true
             }]
         },
-        options: { responsive: true, maintainAspectRatio: false }
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    grid: {
+                        color: "#B0C4DE"
+                    }
+                },
+                y: {
+                    grid: {
+                        color: "#B0C4DE"
+                    }
+                }
+            }
+        }
     });
+
+    window.updateSalesData = function (period) {
+        const newData = {
+            day: [130, 520, 1600, 7100],
+            week: [140, 530, 1700, 7200],
+            month: [150, 540, 1800, 7300],
+            year: [160, 550, 1900, 7400]
+        };
+
+        salesChart.data.datasets[0].data = newData[period];
+        salesChart.update();
+        updateSalesTable(salesChart.data);
+    };
+
+    window.showSalesTable = function () {
+        updateSalesTable(salesChart.data);
+        document.getElementById("salesTable").classList.remove("d-none");
+    };
+
+    function updateSalesTable(chartData) {
+        const tableBody = document.querySelector("#salesTable tbody");
+        tableBody.innerHTML = "";
+
+        chartData.labels.forEach((label, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `<td class="border bg-light">${label}</td><td class="border bg-light">${chartData.datasets[0].data[index]}</td>`;
+            tableBody.appendChild(row);
+        });
+    }
+
+    window.downloadSalesExcel = function () {
+        let table = document.getElementById("salesTable");
+        let wb = XLSX.utils.table_to_book(table);
+        XLSX.writeFile(wb, "Sales_Report.xlsx");
+    };
+
+    window.printChartPDF = function (canvasId, title) {
+        const canvas = document.getElementById(canvasId);
+        const imgData = canvas.toDataURL("image/png");
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.text(title, 10, 10);
+        doc.addImage(imgData, "PNG", 10, 20, 180, 100);
+        doc.save(`${title}.pdf`);
+    };
 }
 
-// Function to refresh chart data
-function refreshChart(chart, newData) {
-    chart.data.labels = newData.labels;
-    chart.data.datasets[0].data = newData.data;
-    chart.data.datasets[0].label = newData.label;
-    chart.update();
-}
-
-// Function to show Sales Table dynamically
-function showSalesTable(type) {
-    let tableContainer = document.getElementById('salesTableContainer');
-    tableContainer.classList.remove("hidden");
-
-    let salesTableBody = document.getElementById('salesTableBody');
-    salesTableBody.innerHTML = "";  // Clear existing table content
-
-    let data = salesData[type];  // Get the selected data (day, week, month, year)
-    data.labels.forEach((label, index) => {
-        let row = document.createElement("tr");
-        let dateCell = document.createElement("td");
-        dateCell.textContent = label;
-        let salesCell = document.createElement("td");
-        salesCell.textContent = data.data[index];
-        row.appendChild(dateCell);
-        row.appendChild(salesCell);
-        salesTableBody.appendChild(row);
+function setupMedicineChart() {
+    const ctx = document.getElementById("medicineChart").getContext("2d");
+    let medicineChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: ["Stock", "Expiring Soon", "Out of Stock"],
+            datasets: [{
+                label: "Medicine Levels",
+                data: [200, 50, 10],
+                borderColor: "#3b82f6",
+                backgroundColor: "rgba(59, 130, 246, 0.2)",
+                borderWidth: 2,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
     });
+
+    window.updateMedicineData = function (category) {
+        const newData = {
+            stock: [220, 45, 15],
+            expiring: [210, 60, 12],
+            outOfStock: [190, 30, 8]
+        };
+
+        medicineChart.data.datasets[0].data = newData[category];
+        medicineChart.update();
+        updateMedicineTable(medicineChart.data);
+    };
+
+    window.showMedicineTable = function () {
+        updateMedicineTable(medicineChart.data);
+        const table = document.getElementById("medicineTable");
+        table.classList.remove("d-none");
+        setTimeout(() => {
+            medicineChart.resize();
+        }, 300);
+    };
+
+    function updateMedicineTable(chartData) {
+        const tableBody = document.querySelector("#medicineTable tbody");
+        tableBody.innerHTML = "";
+
+        chartData.labels.forEach((label, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `<td class="border bg-light">${label}</td><td class="border bg-light">${chartData.datasets[0].data[index]}</td>`;
+            tableBody.appendChild(row);
+        });
+    }
+
+    window.downloadMedicineExcel = function () {
+        let table = document.getElementById("medicineTable");
+        let wb = XLSX.utils.table_to_book(table);
+        XLSX.writeFile(wb, "Medicine_Report.xlsx");
+    };
+
+    window.printChartPDF = function (canvasId, title) {
+        const canvas = document.getElementById(canvasId);
+        const imgData = canvas.toDataURL("image/png");
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.text(title, 10, 10);
+        doc.addImage(imgData, "PNG", 10, 20, 180, 100);
+        doc.save(`${title}.pdf`);
+    };
 }
-
-// Function to show Medicine Table dynamically
-function showMedicineTable(type) {
-    let tableContainer = document.getElementById('medicineTableContainer');
-    tableContainer.classList.remove("hidden");
-
-    let medicineTableBody = document.getElementById('medicineTableBody');
-    medicineTableBody.innerHTML = "";  // Clear existing table content
-
-    let data = medicineData[type];  // Get the selected data (stock, expiring, outOfStock)
-    data.labels.forEach((label, index) => {
-        let row = document.createElement("tr");
-        let medicineCell = document.createElement("td");
-        medicineCell.textContent = label;
-        let stockCell = document.createElement("td");
-        stockCell.textContent = data.data[index];
-        row.appendChild(medicineCell);
-        row.appendChild(stockCell);
-        medicineTableBody.appendChild(row);
-    });
-}
-
-// Function to print chart and table as PDF
-function printChartWithTablePDF(canvasId, tableId, title) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    
-    const canvas = document.getElementById(canvasId);
-    const imgData = canvas.toDataURL("image/png");
-
-    doc.setFontSize(18);
-    doc.text(title, 15, 20);
-    doc.addImage(imgData, 'PNG', 15, 30, 180, 100);
-
-    // Add the table
-    let table = document.getElementById(tableId);
-    let tableData = table.innerHTML;
-    doc.setFontSize(10);
-    doc.text(tableData, 15, 140);
-
-    doc.save(`${title}.pdf`);
-}
-
-// Download Sales Data as Excel
-function downloadSalesExcel() {
-    let ws = XLSX.utils.table_to_sheet(document.getElementById('salesTable'));
-    let wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Sales Report");
-    XLSX.writeFile(wb, "Sales_Report.xlsx");
-}
-
-// Download Medicine Data as Excel
-function downloadMedicineExcel() {
-    let ws = XLSX.utils.table_to_sheet(document.getElementById('medicineTable'));
-    let wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Medicine Stock");
-    XLSX.writeFile(wb, "Medicine_Stock.xlsx");
-}
-
-// Sample data for sales and medicine (you can replace this with actual data from your backend)
-const salesData = {
-    day: { labels: ['8 AM', '12 PM', '4 PM', '8 PM'], data: [120, 200, 150, 180], borderColor: 'red', label: 'Daily Sales' },
-    week: { labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], data: [500, 600, 700, 550, 650, 750, 800], borderColor: 'blue', label: 'Weekly Sales' },
-    month: { labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], data: [2500, 3000, 2800, 3200], borderColor: 'green', label: 'Monthly Sales' },
-    year: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], data: [10000, 12000, 9000, 11000, 10500, 11500, 14000, 13000, 12500, 15000, 16000, 17000], borderColor: 'purple', label: 'Yearly Sales' }
-};
-
-const medicineData = {
-    stock: { labels: ['Medicine A', 'Medicine B', 'Medicine C'], data: [50, 80, 30], borderColor: 'green', label: 'Stock Levels' },
-    expiring: { labels: ['Medicine D', 'Medicine E', 'Medicine F'], data: [10, 20, 15], borderColor: 'orange', label: 'Expiring Soon' },
-    outOfStock: { labels: ['Medicine G', 'Medicine H'], data: [0, 0], borderColor: 'red', label: 'Out of Stock' }
-};
